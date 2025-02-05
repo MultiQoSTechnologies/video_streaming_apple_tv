@@ -67,6 +67,7 @@
 		08EF2B672D5236AA00A09FCA /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EF2B622D5236AA00A09FCA /* UIImage+Extension.swift */; };
 		08EF2B682D5236AA00A09FCA /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EF2B642D5236AA00A09FCA /* ExtensionUIImageView.swift */; };
 		08EF2B6A2D5244EF00A09FCA /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EF2B692D5244EF00A09FCA /* VideoPlayerVC.swift */; };
+		DBF1C0B96B57A13B2A560008 /* Pods_VideoStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B08BF7E67460F8010C9D00 /* Pods_VideoStreaming.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,9 @@
 		08EF2B632D5236AA00A09FCA /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		08EF2B642D5236AA00A09FCA /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
 		08EF2B692D5244EF00A09FCA /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
+		28B08BF7E67460F8010C9D00 /* Pods_VideoStreaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoStreaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34DFE8521A049BD4A3B800E6 /* Pods-VideoStreaming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoStreaming.debug.xcconfig"; path = "Target Support Files/Pods-VideoStreaming/Pods-VideoStreaming.debug.xcconfig"; sourceTree = "<group>"; };
+		6A670FAB91817083ABC52C9F /* Pods-VideoStreaming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoStreaming.release.xcconfig"; path = "Target Support Files/Pods-VideoStreaming/Pods-VideoStreaming.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF1C0B96B57A13B2A560008 /* Pods_VideoStreaming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +155,7 @@
 				08EF2B242D52249600A09FCA /* VideoStreaming */,
 				08EF2A2F2D521D8100A09FCA /* Products */,
 				B35D1DD24439FF0CBF84257A /* Pods */,
+				B8AD4BA792FB9174CA3F04EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -551,8 +557,18 @@
 		B35D1DD24439FF0CBF84257A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				34DFE8521A049BD4A3B800E6 /* Pods-VideoStreaming.debug.xcconfig */,
+				6A670FAB91817083ABC52C9F /* Pods-VideoStreaming.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B8AD4BA792FB9174CA3F04EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28B08BF7E67460F8010C9D00 /* Pods_VideoStreaming.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,9 +578,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08EF2A3F2D521D8400A09FCA /* Build configuration list for PBXNativeTarget "VideoStreaming" */;
 			buildPhases = (
+				2A4A66A502B1DDBEB2980D0D /* [CP] Check Pods Manifest.lock */,
 				08EF2A2A2D521D8100A09FCA /* Sources */,
 				08EF2A2B2D521D8100A09FCA /* Frameworks */,
 				08EF2A2C2D521D8100A09FCA /* Resources */,
+				E2818377FA993D02A2FE6A48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -621,6 +639,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A4A66A502B1DDBEB2980D0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoStreaming-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2818377FA993D02A2FE6A48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VideoStreaming/Pods-VideoStreaming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VideoStreaming/Pods-VideoStreaming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VideoStreaming/Pods-VideoStreaming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08EF2A2A2D521D8100A09FCA /* Sources */ = {
@@ -830,6 +890,7 @@
 		};
 		08EF2A402D521D8400A09FCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34DFE8521A049BD4A3B800E6 /* Pods-VideoStreaming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -858,6 +919,7 @@
 		};
 		08EF2A412D521D8400A09FCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A670FAB91817083ABC52C9F /* Pods-VideoStreaming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
