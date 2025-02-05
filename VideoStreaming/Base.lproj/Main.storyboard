@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="13122.16" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="23504" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Video ListVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoListVC" id="BYZ-38-t0r" customClass="VideoListVC" customModule="VideoStreaming" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,12 +20,89 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FXW-7j-ITc" customClass="CollectionVideoList" customModule="VideoStreaming" customModuleProvider="target">
+                                <rect key="frame" x="96" y="60" width="1728" height="960"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="MfE-GO-WT4">
+                                    <size key="itemSize" width="387" height="515"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoListCell" id="xVo-jn-HZr" customClass="VideoListCell" customModule="VideoStreaming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="387" height="515"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9q2-rJ-bBH">
+                                            <rect key="frame" x="0.0" y="0.0" width="387" height="515"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNN-Nc-4ax">
+                                                    <rect key="frame" x="8" y="8" width="371" height="499"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="wNN-Nc-4ax" secondAttribute="bottom" constant="8" id="6yO-U9-qFv"/>
+                                                <constraint firstItem="wNN-Nc-4ax" firstAttribute="top" secondItem="9q2-rJ-bBH" secondAttribute="top" constant="8" id="D47-B8-8vT"/>
+                                                <constraint firstItem="wNN-Nc-4ax" firstAttribute="leading" secondItem="9q2-rJ-bBH" secondAttribute="leading" constant="8" id="OA0-Qd-V3s"/>
+                                                <constraint firstAttribute="trailing" secondItem="wNN-Nc-4ax" secondAttribute="trailing" constant="8" id="eBX-hx-lTu"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="387" height="515"/>
+                                        <connections>
+                                            <outlet property="img" destination="wNN-Nc-4ax" id="KAR-hA-fPN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wu6-TO-1qx"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FXW-7j-ITc" firstAttribute="leading" secondItem="wu6-TO-1qx" secondAttribute="leading" constant="16" id="Kw8-GN-xTJ"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="bottom" secondItem="FXW-7j-ITc" secondAttribute="bottom" id="bbJ-db-Em9"/>
+                            <constraint firstItem="wu6-TO-1qx" firstAttribute="trailing" secondItem="FXW-7j-ITc" secondAttribute="trailing" constant="16" id="hKa-nO-tCd"/>
+                            <constraint firstItem="FXW-7j-ITc" firstAttribute="top" secondItem="wu6-TO-1qx" secondAttribute="top" id="vJI-to-390"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionVideo" destination="FXW-7j-ITc" id="CdM-qg-3X6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="148" y="-63"/>
+        </scene>
+        <!--Video PlayerVC-->
+        <scene sceneID="9gP-1n-1Zg">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayerVC" id="2cg-8u-Hrk" customClass="VideoPlayerVC" customModule="VideoStreaming" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yRN-IQ-jsV"/>
+                        <viewControllerLayoutGuide type="bottom" id="1F0-DW-jLK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dQk-Ly-0ym">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ndc-mC-bQz"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jRE-KT-27P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2277" y="-63"/>
         </scene>
     </scenes>
 </document>
